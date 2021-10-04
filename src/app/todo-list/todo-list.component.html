@@ -5,6 +5,11 @@
     <button (click)="addTask(inputDescription.value)">Adicionar tarefa</button>
 </div>
 <br>
+<div [ngSwitch]="tasks.length">
+    <p *ngSwitchCase="0">Nenhuma Tarefa cadastrada</p>
+    <p *ngSwitchCase="1">Uma Tarefa cadastrada</p>
+    <p *ngSwitchDefault>{{tasks.length}} tarefas cadastradas</p>
+</div>
 <table>
     <tr *ngFor="let task of tasks; let i = index">
         <td><input type="checkbox" [checked]="task.done"></td>
