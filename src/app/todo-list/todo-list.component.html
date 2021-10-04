@@ -1,7 +1,15 @@
+<br><br>
+<h1>To do List</h1>
+<div>
+    <input #inputDescription type="text" placeholder="Descrição da tarefa">
+    <button (click)="addTask(inputDescription.value)">Adicionar tarefa</button>
+</div>
+<br>
 <table>
-    <tr *ngFor="let task of tasks">
+    <tr *ngFor="let task of tasks; let i = index">
         <td><input type="checkbox" [checked]="task.done"></td>
         <td>{{task.description}}</td>
+        <td><button (click)="deleteTask(i)">Excluir</button></td>
     </tr>
 
 </table>
